@@ -1,0 +1,96 @@
+body{
+    
+    background: rgb(253,45,45);
+    background: linear-gradient(0deg, rgba(253,45,45,1) 0%, rgba(0,0,0,1) 10%);
+}
+
+.cont{
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente */
+    height: 100vh;           /* La altura es el 100% de la pantalla */
+
+}
+
+.llave{
+
+    height: 100px;
+    width: 100px; /* Agregué un ancho para que el elemento sea visible */
+
+    position: relative; /* Necesario para que top funcione */
+    animation: moveDown 1s ease-in-out infinite
+
+}
+
+@keyframes moveDown {
+    0% {
+        top: -10px;
+    }
+    50% {
+        top: 10px;
+    }
+    100% {
+        top: -10px;
+    }
+}
+
+.llavemove{
+
+    animation: moves ease-in-out 9s infinite
+
+}
+
+@keyframes moves {
+    0% {
+        top: 0;
+        right: 0;
+    }
+    8% {
+        top: 50px; /* Baja un poco */
+        right: -50px; /* Izquierda */
+    }
+    16% {
+        top: 100px; /* Baja más */
+        right: -100px; /* Izquierda */
+    }
+    25% {
+        top: 200px; /* Baja más */
+        right: -200px; /* Izquierda */
+    }
+    33% {
+        top: 150px;
+        right: -250px;
+    }
+    41% {
+        top: 100px;
+        right: -300px;
+    }
+    50% {
+        top: 0; /* Regresa al centro */
+        right: -400px; /* Mueve más a la izquierda */
+    }
+    58% {
+        top: -50px;
+        right: -350px;
+    }
+    66% {
+        top: -100px;
+        right: -300px;
+    }
+    75% {
+        top: -200px; /* Sube */
+        right: -200px; /* Derecha */
+    }
+    83% {
+        top: -150px;
+        right: -150px;
+    }
+    91% {
+        top: -100px;
+        right: -100px;
+    }
+    100% {
+        top: 0; /* Vuelve a la posición inicial */
+        right: 0; /* Regresa a la derecha */
+    }
+}

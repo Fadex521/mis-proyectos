@@ -1,0 +1,45 @@
+.divcenter {
+    margin-top: 110px;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 10vh; /* Altura completa de la ventana */
+    position: relative; /* Necesario para que los elementos dentro del div se posicionen de forma relativa */
+}
+
+.divcenter2 {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 0vh; /* Altura completa de la ventana */
+    position: relative; /* Necesario para que los elementos dentro del div se posicionen de forma relativa */
+}
+
+.divcenter3 {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 50vh; /* Altura completa de la ventana */
+    position: relative; /* Necesario para que los elementos dentro del div se posicionen de forma relativa */
+}
+
+.button{
+
+    margin-left: 20px;
+
+}
+
+.inputs {
+    
+margin-left: 20px;
+display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+
+    position: relative; 
+}
+.datos{
+
+    margin-left: 20px; 
+
+}

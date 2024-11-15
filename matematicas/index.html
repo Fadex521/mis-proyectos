@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regla del Punto Medio - Integración Numérica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 20px;
+            color: #4a90e2;
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4a90e2;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #357ab8;
+        }
+        .result {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #e1f5fe;
+            border: 1px solid #b3e5fc;
+            border-radius: 4px;
+            color: #0277bd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Regla del Punto Medio</h1>
+        <input type="text" id="funcion" placeholder="Función f(x), ej: x*x" />
+        <input type="number" id="a" placeholder="Límite inferior a" />
+        <input type="number" id="b" placeholder="Límite superior b" />
+        <input type="number" id="n" placeholder="Número de divisiones n" />
+        <button onclick="calcularIntegral()">Calcular Integral</button>
+        <div id="resultado" class="result">resultado</div>
+    </div>
+
+    <script>
+        function integrarPorPuntoMedio(f, a, b, n) {
+            const deltaX = (b - a) / n;
+            let integral = 0;
+
+            for (let i = 0; i < n; i++) {
+                const xi_1 = a + i * deltaX;
+                const xi = a + (i + 1) * deltaX;
+                const puntoMedio = (xi_1 + xi) / 2;
+                integral += f(puntoMedio) * deltaX;
+            }
+
+            return integral;
+        }
+
+        function calcularIntegral() {
+            // Obtener los valores del formulario
+            const funcionStr = document.getElementById("funcion").value;
+            const a = parseFloat(document.getElementById("a").value);
+            const b = parseFloat(document.getElementById("b").value);
+            const n = parseInt(document.getElementById("n").value);
+
+            // Validación de entradas
+            if (!funcionStr || isNaN(a) || isNaN(b) || isNaN(n) || n <= 0) {
+                document.getElementById("resultado").textContent = "Por favor, ingrese valores válidos.";
+                return;
+            }
+
+            // Convertir la función ingresada a una función JavaScript
+            const f = new Function("x", "return " + funcionStr);
+
+            // Calcular la integral usando la Regla del Punto Medio
+            const resultado = integrarPorPuntoMedio(f, a, b, n);
+
+            // Mostrar el resultado
+            document.getElementById("resultado").textContent = "Aproximación de la integral: " + resultado.toFixed(4);
+        }
+    </script>
+</body>
+</html>
